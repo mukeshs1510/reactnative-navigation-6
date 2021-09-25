@@ -1,59 +1,25 @@
 
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import FrontPage from './screen/FrontPage';
+import HomePage from './screen/HomePage';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import GamingImg from './assets/gaming_svg.svg';
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.safeAreaStyle}>
-      <View>
-        <Text style={styles.headingStyle}>GAMEON</Text>
-      </View>
-      <GamingImg width={300} height={300}/>
-      <TouchableOpacity style={styles.buttonStyle}>
-        <Text style={styles.normalText}>Let's Begin</Text>
-        <MaterialIcons name="arrow-forward-ios" size={22} color="#fff"/>
-      </TouchableOpacity>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen component={FrontPage} name="Front"
+          options={{headerShown: false}}
+        ></Stack.Screen>
+        <Stack.Screen component={HomePage} name="Home"></Stack.Screen>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
 export default App;
 
-const styles = StyleSheet.create({
-  safeAreaStyle: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  headingStyle: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    color: '#20315f'
-  },
-  normalText: {
-    fontSize: 18,
-    color: '#fff',
-    fontFamily: 'Nunito-Italic'
-  },
-  buttonStyle: {
-    backgroundColor: '#AD40AF',
-    padding: 20,
-    width: '90%',
-    borderRadius: 5,
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  svgImg: {
-    transform: [{rotate: '-15deg'}]
-  }
-});
 
