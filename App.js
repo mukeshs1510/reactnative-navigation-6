@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import GamingImg from './assets/gaming_svg.svg';
 
 const App = () => {
   return (
@@ -16,9 +17,10 @@ const App = () => {
       <View>
         <Text style={styles.headingStyle}>GAMEON</Text>
       </View>
-      <TouchableOpacity>
-        <Text>Let's Begin</Text>
-        <MaterialIcons name="arrow-forward-ios" size={22} color="#000"/>
+      <GamingImg width={300} height={300}/>
+      <TouchableOpacity style={styles.buttonStyle}>
+        <Text style={styles.normalText}>Let's Begin</Text>
+        <MaterialIcons name="arrow-forward-ios" size={22} color="#fff"/>
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -40,6 +42,7 @@ const styles = StyleSheet.create({
   normalText: {
     fontSize: 18,
     color: '#fff',
+    fontFamily: 'Nunito-Italic'
   },
   buttonStyle: {
     backgroundColor: '#AD40AF',
@@ -48,6 +51,9 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     flexDirection: 'row',
     justifyContent: 'space-between'
+  },
+  svgImg: {
+    transform: [{rotate: '-15deg'}]
   }
 });
 
